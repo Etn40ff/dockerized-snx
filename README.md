@@ -12,10 +12,19 @@ own risk.
 
 # Usage
 
-Pick a folder in which to store your config files
+Pick a folder in which to store your config files and create one using the
+syntax of `expect` scripts
 ```
 export configs=/etc/snx
 mkdir $configs
+cat >  $configs/myconfig.exp << EOF
+set servername my.server.address
+set username myuser
+set password mypassword\[with\}escaped\*specialCharacters
+# optional the build number of snx to use: not all version will work with a
+# given server. Possbilities currently are 800008209 (default) and 800007075 
+set build_number 800008209
+EOF
 ```
 
 Build the container
@@ -23,21 +32,17 @@ Build the container
 docker build -t snx --network host .
 ```
 
-Create a config file using the syntax of `expect` scripts
-```
-cat >  $configs/myconfig.exp << EOF
-set servername my.server.address
-set username myuser
-set password mypassword\[with\}escaped\*specialCharacters
-# optional the build number of snx to use: not all version will work with a
-# given server. Possbilities currently are 800008209 and 800007075
-set build_number 800008209
-EOF
-```
-
 First start
 ```
-docker run --name a_friendly_name -d -v $configs:/etc/snx/ -v /lib/modules:/lib/modules:ro --net=host --privileged snx myconfig.exp
+docker run \
+	--name a_friendly_name \
+	--detach \
+	-v $configs:/etc/snx/ \
+	-v /lib/modules:/lib/modules:ro \
+	--net=host \
+	--privileged \
+	snx \
+	myconfig.exp
 ```
 
 Then
