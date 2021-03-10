@@ -1,0 +1,20 @@
+#!/usr/bin/expect -f
+
+log_user 0
+
+set config_file [lindex $argv 0]
+set build_number ""
+
+source /etc/snx/$config_file
+
+if {$build_number eq ""} {set build_number 800008209}
+
+spawn /opt/bin/snx-$build_number -s $servername -u $username
+expect "*?assword:"
+send "$password\r"
+expect {
+  "*Do you accept*"       { send "y\r"; exp_continue }
+  "*SNX - connected.*"    { puts "Connected." }
+}
+
+vwait forever
