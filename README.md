@@ -1,6 +1,6 @@
 # Introduction 
 
-The Linux client for Checkpoint VPN `snx` is a i386 executable; this container wraps it so
+The Linux client for Checkpoint VPN, `snx`, is a i386 executable; this container wraps it so
 that it is not necessary to use a muliarch distro.
 
 This container should be run with `--net=host --privileged` in order for it to
@@ -16,7 +16,9 @@ Pick a folder in which to store your config files and create one using the
 syntax of `expect` scripts
 ```
 export configs=/etc/snx
+
 mkdir $configs
+
 cat >  $configs/myconfig.exp << EOF
 set servername my.server.address
 set username myuser
