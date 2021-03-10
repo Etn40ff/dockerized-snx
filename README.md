@@ -65,3 +65,7 @@ set username firlas
 set password supersecret
 set build_number 800007075
 ```
+
+# Credits
+This container was inspired by
+https://github.com/Kedu-SCCL/docker-snx-checkpoint-vpn
