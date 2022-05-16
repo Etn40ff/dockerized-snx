@@ -65,7 +65,14 @@ set username firstname.lastname@uniroma1.it
 set password supersecret
 set build_number 800008209
 ```
-## Università degli Studi dell'Aquila
+## Università degli Studi dell'Aquila -- new firewall
+```
+set servername vpn.univaq.it
+set username firlas
+set password supersecret
+set build_number 800010003
+```
+## Università degli Studi dell'Aquila -- old firewall
 ```
 set servername prena.univaq.it
 set username firlas

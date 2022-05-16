@@ -10,9 +10,11 @@ RUN apt-get update && apt-get install -y \
 RUN mkdir /opt/bin/ /etc/snx
 ADD snx-800008209 /opt/bin
 ADD snx-800007075 /opt/bin
+ADD snx-800010003 /opt/bin
 ADD dig-tunnel.exp /opt/bin
 RUN chmod a+x /opt/bin/snx-800008209
 RUN chmod a+x /opt/bin/snx-800007075
+RUN chmod a+x /opt/bin/snx-800010003
 RUN chmod a+x /opt/bin/dig-tunnel.exp
 
 ENTRYPOINT ["/opt/bin/dig-tunnel.exp"]
