@@ -1,3 +1,8 @@
+# Deprecation
+The University of L'Aquila recently updated their infrastructure and this workaround is no longer necessary.
+Use [ancwrd1/snx-rs](https://github.com/ancwrd1/snx-rs) instead.
+Should you need it, you can find the old README below.
+
 # Introduction 
 
 The Linux client for Checkpoint VPN, `snx`, is a i386 executable; this container wraps it so
